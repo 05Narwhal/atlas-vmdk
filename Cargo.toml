@@ -1,0 +1,30 @@
+[package]
+name = "atlas-vmdk"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.88"
+license = "MIT OR Apache-2.0"
+description = "Read VMware VMDK virtual disks: monolithic sparse, stream-optimized and descriptor-based images."
+repository = "https://github.com/05Narwhal/atlas-vmdk"
+readme = "README.md"
+keywords = ["vmdk", "vmware", "disk-image", "virtual-disk", "parser"]
+categories = ["filesystem", "parser-implementations"]
+authors = ["Julian A. Loy"]
+
+[dependencies]
+atlas-fs-core = { version = "0.1", path = "X:/Documents/Coding/Projects/Libraries/Rust/atlas-fs-core" }
+# Stream-optimized grains are zlib streams.
+flate2 = { version = "1.1", default-features = false, features = ["zlib-rs"] }
+
+[lints.rust]
+unsafe_code = "forbid"
+unused_must_use = "deny"
+rust_2018_idioms = { level = "warn", priority = -1 }
+
+[lints.clippy]
+all = { level = "warn", priority = -1 }
+dbg_macro = "warn"
+todo = "warn"
+print_stdout = "warn"
+print_stderr = "warn"
+undocumented_unsafe_blocks = "deny"
