@@ -1,19 +1,19 @@
 [package]
 name = "atlas-vmdk"
-version = "26.0.1-a"
+version = "26.0.2-a"
 edition = "2024"
 rust-version = "1.88"
 license = "MIT OR Apache-2.0"
 description = "Read VMware VMDK virtual disks: monolithic sparse, stream-optimized and descriptor-based images."
 repository = "https://github.com/05Narwhal/atlas-vmdk"
-homepage = "https://julianloy.com"
+documentation = "https://disk-atlas.julianloy.com/docs"
 readme = "README.md"
 keywords = ["vmdk", "vmware", "disk-image", "virtual-disk", "parser"]
 categories = ["filesystem", "parser-implementations"]
 authors = ["Julian A. Loy"]
 
 [dependencies]
-atlas-fs-core = { version = "26.0.1-a", path = "../atlas-fs-core" }
+atlas-fs-core = { version = "26.0.2-a", path = "../atlas-fs-core" }
 # Stream-optimized grains are zlib streams.
 flate2 = { version = "1.1", default-features = false, features = ["zlib-rs"] }
 
