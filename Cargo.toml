@@ -1,6 +1,6 @@
 [package]
 name = "atlas-vmdk"
-version = "0.1.0"
+version = "26.0.1-a"
 edition = "2024"
 rust-version = "1.88"
 license = "MIT OR Apache-2.0"
@@ -13,7 +13,7 @@ categories = ["filesystem", "parser-implementations"]
 authors = ["Julian A. Loy"]
 
 [dependencies]
-atlas-fs-core = { version = "0.1", path = "../atlas-fs-core" }
+atlas-fs-core = { version = "26.0.1-a", path = "../atlas-fs-core" }
 # Stream-optimized grains are zlib streams.
 flate2 = { version = "1.1", default-features = false, features = ["zlib-rs"] }
 

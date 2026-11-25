@@ -11,7 +11,7 @@ Opens VMware virtual disks as a `BlockSource`: monolithic sparse and stream-opti
 
 ```toml
 [dependencies]
-atlas-vmdk = "0.1"
+atlas-vmdk = "26.0.1-a"
 ```
 
 Minimum supported Rust version: 1.88.
