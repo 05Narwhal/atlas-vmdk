@@ -2,10 +2,39 @@
 
 [![crates.io](https://img.shields.io/crates/v/atlas-vmdk.svg)](https://crates.io/crates/atlas-vmdk) [![docs.rs](https://img.shields.io/docsrs/atlas-vmdk)](https://docs.rs/atlas-vmdk) [![CI](https://github.com/05Narwhal/atlas-vmdk/actions/workflows/ci.yml/badge.svg)](https://github.com/05Narwhal/atlas-vmdk/actions/workflows/ci.yml) ![License](https://img.shields.io/crates/l/atlas-vmdk.svg)
 
-Opens VMware virtual disks as a `BlockSource`: monolithic sparse and stream-optimized (compressed) files, and descriptor files over flat and sparse extents.
+**Open VMware VMDK virtual disks as a plain `BlockSource`.**
 
-- Descriptor files are size-limited and every extent is checked against its file. Images with a parent are reported as unsupported.
-- No `unsafe`. Every length, offset and count read from the disk is checked; damage is an error, not a panic.
+`atlas-vmdk` reads VMware virtual disks and presents the disk inside as a `BlockSource`, ready for `atlas-partition` and the filesystem readers.
+
+## Features
+
+- **Monolithic sparse** and **stream-optimized** (deflate-compressed) files.
+- **Descriptor files** over flat and sparse extents.
+- Descriptor files are size-limited and every extent is checked against its file.
+- Images with a parent are reported as unsupported.
+
+## Quick start
+
+```rust,no_run
+use std::path::Path;
+
+use atlas_fs_core::io::block::BlockSource;
+
+let disk = atlas_vmdk::open(Path::new("disk.vmdk"))?;
+println!("{} bytes of disk", disk.len());
+```
+
+## Sources
+
+Written from the public "Virtual Disk Format 5.0" and "Virtual Disk Format 1.1" documents from VMware. Sizes are in 512-byte sectors and integers are little-endian.
+
+## Safety and robustness
+
+- **No `unsafe`.** The crate is `#![forbid(unsafe_code)]`.
+- **On-disk bytes are hostile.** Every length, offset and count read from a disk is validated before use. Damage is returned as an error, never a panic, an unchecked index or an unbounded loop.
+- **Lints enforce it.** Clippy's `indexing_slicing`, `arithmetic_side_effects`, `unwrap_used`, `expect_used` and `panic` lints are on for the library code.
+- **Read-only.** Nothing in this crate writes to a disk or image.
+- **Fuzzed.** A `cargo-fuzz` target in `fuzz/` runs the parser on arbitrary bytes.
 
 ## Install
 
@@ -14,7 +43,9 @@ Opens VMware virtual disks as a `BlockSource`: monolithic sparse and stream-opti
 atlas-vmdk = "26.0.1-a"
 ```
 
-Minimum supported Rust version: 1.88.
+Versions follow `26.MAJOR.MINOR-STAGE`: the year, the major and minor version, and a stage letter (`a` alpha, `b` beta, `s` stable). Cargo treats a stage suffix as a pre-release, so name the version exactly as above.
+
+Minimum supported Rust version: 1.88 (edition 2024).
 
 ## Licence
 
