@@ -6,6 +6,7 @@ rust-version = "1.88"
 license = "MIT OR Apache-2.0"
 description = "Read VMware VMDK virtual disks: monolithic sparse, stream-optimized and descriptor-based images."
 repository = "https://github.com/05Narwhal/atlas-vmdk"
+homepage = "https://julianloy.com"
 readme = "README.md"
 keywords = ["vmdk", "vmware", "disk-image", "virtual-disk", "parser"]
 categories = ["filesystem", "parser-implementations"]
