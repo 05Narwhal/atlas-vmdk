@@ -1,6 +1,6 @@
 # atlas-vmdk
 
-<!-- badges -->[![crates.io](https://img.shields.io/crates/v/atlas-vmdk.svg)](https://crates.io/crates/atlas-vmdk) [![docs.rs](https://img.shields.io/docsrs/atlas-vmdk)](https://docs.rs/atlas-vmdk) [![CI](https://github.com/05Narwhal/atlas-vmdk/actions/workflows/ci.yml/badge.svg)](https://github.com/05Narwhal/atlas-vmdk/actions/workflows/ci.yml) ![License](https://img.shields.io/crates/l/atlas-vmdk.svg)
+[![crates.io](https://img.shields.io/crates/v/atlas-vmdk.svg)](https://crates.io/crates/atlas-vmdk) [![docs.rs](https://img.shields.io/docsrs/atlas-vmdk)](https://docs.rs/atlas-vmdk) [![CI](https://github.com/05Narwhal/atlas-vmdk/actions/workflows/ci.yml/badge.svg)](https://github.com/05Narwhal/atlas-vmdk/actions/workflows/ci.yml) ![License](https://img.shields.io/crates/l/atlas-vmdk.svg)
 
 Opens VMware virtual disks as a `BlockSource`: monolithic sparse and stream-optimized (compressed) files, and descriptor files over flat and sparse extents.
 
